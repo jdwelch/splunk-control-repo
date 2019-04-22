@@ -1,0 +1,13 @@
+#!/bin/bash
+####################################################################
+# via Sathish Arthar: https://github.com/sathisharthar/Admin-Scripts
+####################################################################
+# Purpose - Display a list of users currently logged on 
+# display a list of receltly loggged in users 
+function user_info(){
+  echo "---Who is online---"
+  who -H
+  echo "--List of last logged in users--" 
+  last
+}
+user_info

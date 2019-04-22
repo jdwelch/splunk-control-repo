@@ -1,0 +1,18 @@
+#!/bin/bash
+####################################################################
+# via Sathish Arthar: https://github.com/sathisharthar/Admin-Scripts
+####################################################################
+# Purpose - Display used and free memory info
+function mem_info(){
+  echo "---Free and used memory---"
+  free -m
+  echo "*********************************"
+  echo "*** Virtual memory statistics ***"
+  echo "*********************************"
+  vmstat
+  echo "***********************************"
+  echo "*** Top 5 memory eating process ***"
+  echo "***********************************" 
+  ps auxf | sort -nr -k 4 | head -5 
+}
+mem_info

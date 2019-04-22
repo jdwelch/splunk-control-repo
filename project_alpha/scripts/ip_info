@@ -1,0 +1,13 @@
+#!/bin/bash
+####################################################################
+# via Sathish Arthar: https://github.com/sathisharthar/Admin-Scripts
+####################################################################
+# Purpose - Get Public IP address form your ISP
+function ip_info(){
+  cmd='curl -s'
+  echo "---Public IP information---"
+  ipservice=checkip.dyndns.org
+  pipecmd=(sed -e 's/.*Current IP Address: //' -e 's/<.*$//') #using brackets to use it as an array and avoid need of scaping
+  $cmd "$ipservice" | "${pipecmd[@]}"
+}
+ip_info

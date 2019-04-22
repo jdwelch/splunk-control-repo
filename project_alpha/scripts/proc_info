@@ -1,0 +1,6 @@
+#!/bin/bash
+function proc_info(){
+  echo "---Process information---"
+  ps -ef
+}
+proc_info

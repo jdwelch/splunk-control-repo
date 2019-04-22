@@ -1,0 +1,24 @@
+#!/bin/bash
+####################################################################
+# via Sathish Arthar: https://github.com/sathisharthar/Admin-Scripts
+####################################################################
+# Purpose - Network inferface and routing info
+function net_info(){
+  devices=$(netstat -i | cut -d" " -f1 | egrep -v "^Kernel|Iface|lo")
+  echo "---Network information---"
+  echo "Total network interfaces found : $(wc -w <<<${devices})"
+
+  echo "*** IP Addresses Information ***"
+  ip -4 address show
+
+  echo "***********************"
+  echo "*** Network routing ***"
+  echo "***********************"
+  netstat -nr
+
+  echo "**************************************"
+  echo "*** Interface traffic information ***"
+  echo "**************************************"
+  netstat -i
+}
+net_info

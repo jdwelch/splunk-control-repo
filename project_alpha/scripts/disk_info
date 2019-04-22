@@ -1,0 +1,16 @@
+#!/bin/bash
+####################################################################
+# via Sathish Arthar: https://github.com/sathisharthar/Admin-Scripts
+####################################################################
+# purpose - Get Disk Usage Information
+function disk_info() {
+  usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1)
+  partition=$(echo $output | awk '{print $2}')
+  echo "---Disk Usage Info---"
+  if [ "$EXCLUDE_LIST" != "" ] ; then
+    df -H | grep -vE "^Filesystem|tmpfs|cdrom|${EXCLUDE_LIST}" | awk '{print $5 " " $6}'
+  else
+    df -H | grep -vE "^Filesystem|tmpfs|cdrom" | awk '{print $5 " " $6}'
+  fi
+}
+disk_info

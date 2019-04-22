@@ -1,0 +1,14 @@
+forge 'https://forge.puppet.com'
+
+# Modules from the Puppet Forge
+# Versions should be updated to be the latest at the time you start
+mod 'puppetlabs-apply_helpers', '0.1.0'
+mod 'puppetlabs-aws', '2.1.0'
+mod 'puppetlabs-bolt_shim', '0.3.0'
+mod 'puppetlabs/concat',      '4.2.1'
+mod 'puppetlabs/inifile',     '2.2.1'
+mod 'puppetlabs/stdlib',      '4.25.1'
+
+mod 'puppetlabs/splunk_hec',
+  git: 'https://github.com/puppetlabs/splunk_hec.git',
+  ref: 'master'

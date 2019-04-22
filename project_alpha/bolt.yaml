@@ -1,0 +1,10 @@
+concurrency: 10
+format: human
+ssh:
+  insecure: true
+log:
+  console:
+    level: info
+  ./debug.log:
+    level: debug
+    append: true

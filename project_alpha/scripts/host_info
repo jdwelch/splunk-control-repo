@@ -1,0 +1,15 @@
+#!/bin/bash
+####################################################################
+# via Sathish Arthar: https://github.com/sathisharthar/Admin-Scripts
+##################################################################### Purpose - Get info about host such as dns, IP, and hostname
+# Purpose - Get info about host such as dns, IP, and hostname
+function host_info(){
+  local dnsips=$(sed -e '/^$/d' /etc/resolv.conf | awk '{if (tolower($1)=="nameserver") print $2}')
+  echo "---Hostname and DNS information---"
+  echo "Hostname : $(hostname -s)"
+  echo "DNS domain : $(hostname -d)"
+  echo "Fully qualified domain name : $(hostname -f)"
+  echo "Network address (IP) : $(hostname -i)"
+  echo "DNS name servers (DNS IP) : ${dnsips}"
+}
+host_info
